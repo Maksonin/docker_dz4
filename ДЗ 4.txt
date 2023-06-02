@@ -1,0 +1,24 @@
+maksim•~/docker/DZ4_Docker» sudo docker build . -t dz4
+
+[+] Building 0.4s (8/8) FINISHED                                                             
+ => [internal] load build definition from Dockerfile                                    0.0s
+ => => transferring dockerfile: 146B                                                    0.0s
+ => [internal] load .dockerignore                                                       0.1s
+ => => transferring context: 2B                                                         0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest                        0.0s
+ => [1/3] FROM docker.io/library/ubuntu                                                 0.0s
+ => [internal] load build context                                                       0.0s
+ => => transferring context: 265B                                                       0.0s
+ => CACHED [2/3] RUN apt update && apt install -y python3 nginx                         0.0s
+ => [3/3] COPY hello.py /                                                               0.1s
+ => exporting to image                                                                  0.1s
+ => => exporting layers                                                                 0.1s
+ => => writing image sha256:02d73ae7f31f7116bb8d78a6beafb1798de514f67567445316de025315  0.0s
+ => => naming to docker.io/library/dz4                                                  0.0s
+ 
+maksim•~/docker/DZ3_Docker» sudo docker run -dit --name dz4 -h dz4 -p 8081:80 dz4 [16:49:45]
+71edf73c76f56dc61e48bcb9eec2edf1bc516d0dd57b3688b25540791aeddbcb
+
+maksim•~/docker/DZ3_Docker» sudo docker ps -a                                     [16:49:51]
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                             NAMES
+71edf73c76f5   dz4       "/bin/sh -c 'python3…"   2 minutes ago   Up 2 minutes   8081/tcp, 0.0.0.0:8081->80/tcp, :::8081->80/tcp   dz4
